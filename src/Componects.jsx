@@ -70,7 +70,7 @@ const TorusKnot = ({position, size, color}) => {
 }
 const Component = () => {
     return (
-        <Canvas>
+        <Canvas className="canvas-one">
         <directionalLight position={[0, 0, 2]} />
         <ambientLight intensity={[0.4]}/>
 {

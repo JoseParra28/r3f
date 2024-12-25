@@ -1,11 +1,12 @@
 import './App.css'
-import Component from './Componects'
-import ExternalModel from './External'
+
+import Computers from './External'
 function App() {
 
   return (
     <>
-    <ExternalModel/>
+    <Computers/>
+
     </>
   )
 }

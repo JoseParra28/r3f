@@ -8,3 +8,9 @@
 body {
   background-color: hsl(0, 0%, 5%);
 }
+
+.canvas-one {
+  position: absolute;
+  z-index: 2;
+  background-color: red;
+}

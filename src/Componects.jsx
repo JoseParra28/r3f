@@ -22,6 +22,7 @@ const Cube = ({position, size, color}) => {
 )
 }
 const Sphere = ({position, size, color}) => {
+    
     return (
         <mesh position={position}>
             <sphereGeometry args={size}/>
@@ -30,10 +31,21 @@ const Sphere = ({position, size, color}) => {
     )
 }
 
-const Torus = ({position, size, color}) => {
+const TorusKnot = ({position, size, color}) => {
+    const ref = useRef()
+
+    useFrame((state, delta) => {
+        ref.current.rotation.x += delta
+        ref.current.rotation.y += delta 
+        ref.current.position.z = Math.sin(state.clock.elapsedTime * 2)
+        console.log(state.clock)
+        console.log(state.elapsedTime)
+        
+    })
+        
     return (
-        <mesh position={position}>
-            <torusGeometry args={size}/>
+        <mesh position={position} ref={ref}>
+            <torusKnotGeometry args={size}/>
             <meshStandardMaterial color={color}/>
         </mesh>
     )
@@ -51,7 +63,8 @@ const Component = () => {
             <Cube position={[-1,2,-2]} color={"green"} size={[1,1,1]}/>
             <Sphere position={[0,0,0]} args={[0,30,30]} color={"green"}/> */}
         </group> } 
-            <Torus position={[0,0,0]} args={[0,30,30]} color={"gray"}/>
+            <TorusKnot position={[-2,0,0]} size={[0.5, 0.1, 1000, 50]} color={"gray"}/>
+            <Sphere position={[0,0,0]} args={[0,30,30]} color={"green"}/> 
         
         </Canvas>
     )

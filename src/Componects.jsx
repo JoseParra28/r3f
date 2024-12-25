@@ -47,10 +47,9 @@ const TorusKnot = ({position, size, color}) => {
 
 
     useFrame((state, delta) => {
-        ref.current.rotation.y += delta * 0.2
+        const speed = isHovered ? 1 : 0.2
+        ref.current.rotation.y += delta * speed
         // ref.current.position.z = Math.sin(state.clock.elapsedTime * 1)
-        console.log(state.clock)
-        console.log(state.elapsedTime)
         
     })
         

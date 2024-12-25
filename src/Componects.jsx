@@ -44,6 +44,7 @@ const TorusKnot = ({position, size, color}) => {
     const ref = useRef()
 
     const [isHovered, setHover] = useState(false)
+    const [isClicked, setIsClicked] = useState(false)
 
 
     useFrame((state, delta) => {
@@ -56,7 +57,10 @@ const TorusKnot = ({position, size, color}) => {
     return (
         <mesh position={position} ref={ref} 
         onPointerEnter={(event) => (event.stopPropagation(), setHover(true))}
-        onPointerLeave={() => setHover(false)}>
+        onPointerLeave={() => setHover(false)}
+        onClick={() => setIsClicked(!isClicked)}
+        scale={isClicked ? 1.9 : 1}
+        >
             <torusKnotGeometry args={size}/>
             <meshStandardMaterial color={isHovered ? "orange" : "lightBlue"}/>
         </mesh>

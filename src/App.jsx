@@ -1,11 +1,12 @@
 import './App.css'
-
-import Computers from './External'
+import ComputerCanvas from './External'
+// import Navbar from './Navbar'
 function App() {
 
   return (
     <>
-    <Computers/>
+  
+    <ComputerCanvas/>
 
     </>
   )

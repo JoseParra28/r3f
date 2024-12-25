@@ -1,6 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber"
 import { useRef, useState } from "react"
 import { SphereGeometry } from "three"
+import { OrbitControls } from "@react-three/drei"
 
 
 const Cube = ({position, size, color}) => {
@@ -47,12 +48,12 @@ const TorusKnot = ({position, size, color}) => {
     const [isClicked, setIsClicked] = useState(false)
 
 
-    useFrame((state, delta) => {
-        const speed = isHovered ? 1 : 0.2
-        ref.current.rotation.y += delta * speed
-        // ref.current.position.z = Math.sin(state.clock.elapsedTime * 1)
+    // useFrame((state, delta) => {
+    //     const speed = isHovered ? 1 : 0.2
+    //     ref.current.rotation.y += delta * speed
+    //     ref.current.position.z = Math.sin(state.clock.elapsedTime * 1)
         
-    })
+    // })
         
     return (
         <mesh position={position} ref={ref} 
@@ -79,7 +80,8 @@ const Component = () => {
             <Cube position={[-1,2,-2]} color={"green"} size={[1,1,1]}/>
             <Sphere position={[0,0,0]} args={[0,30,30]} color={"green"}/> */}
         </group> } 
-            <TorusKnot position={[-2,0,0]} size={[0.5, 0.1, 1000, 50]} color={"gray"}/>
+            <TorusKnot position={[0,0,0]} size={[0.5, 0.1, 1000, 50]} color={"gray"}/>
+            <OrbitControls enableZoom={false} onClick={ () => console.log("Hello drei")}/>
         
         </Canvas>
     )
